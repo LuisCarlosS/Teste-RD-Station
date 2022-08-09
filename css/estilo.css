@@ -1,0 +1,332 @@
+@import url('reset.css');
+
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@200;500&family=Ramabhadra&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+body{
+    background-color: white;
+    background-size: cover;
+    font-family: 'Kanit', sans-serif;
+}
+.topo{
+    margin: 0 auto;
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 5px 100px;
+    box-shadow: 0px 2px rgba(0, 0, 0, 0.08);
+    font-family: 'Ramabhadra', sans-serif;
+}
+.logo{
+    height: 2.5rem;
+    flex-grow: 2;
+}
+.logo img{
+    height: 100%;
+}
+.menu{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-left: 12rem;
+    flex-grow: 5;
+}
+.menu div{
+    margin-right: 4rem;
+}
+.menu div a{
+    text-decoration: none;
+    color: #000000;
+}
+.btn1{
+    flex-grow: 1;
+}
+.btn1 button{
+    position:relative;
+    border: 2px solid #000000;
+    padding: 8px 15px;
+    font-weight: bold;
+    background-color: #ffffff;
+    
+}
+.btn1 button:after{
+    display:block;
+    content:"";
+    position:absolute;
+    width:92%;
+    height:10px;
+    left: 4px;
+    top:30px;
+    transform: perspective(80px) translateZ(5px) rotateX(-78deg);
+    background:rgb(0, 0, 0);
+    box-shadow: 0px 10px rgb(0, 0, 0);
+    z-index:-1;
+}
+.btn2{
+    flex-grow: 1;
+}
+.btn2 button{
+    position:relative;
+    padding: 10px 15px;
+    font-weight: bold;
+    background-color: #22c1ce;
+    border: none;
+}
+.btn2 button:after{
+    display:block;
+    content:"";
+    position:absolute;
+    width: 88%;
+    height:10px;
+    left: 6px;
+    top:32px;
+    transform: perspective(80px) translateZ(5px) rotateX(-78deg);
+    background:rgb(0, 0, 0);
+    box-shadow: 0px 10px rgb(0, 0, 0);
+    z-index:-1;
+}
+.conteudo{
+    padding: 25px 100px;
+    display: flex;
+    flex-direction: row;
+}
+.chamadas{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+.formulario{
+    width: 40%;
+}
+.chamada1{
+    margin: 6rem 8rem 20rem 0;
+}
+.chamada1 h1{
+    font-size: 3.4rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+.chamada1 h1 span{
+    color: #22c1ce;
+}
+.chamada1 p{
+    font-size: 1.5rem;
+    font-weight: lighter;
+    line-height: 2rem;
+    
+}
+.chamada2{
+    margin: 5rem 8rem 15rem 0;
+}
+.chamada2 h2{
+    font-size: 1.9rem;
+    font-weight: bold;
+    margin-bottom: 1.9rem;
+}
+.chamada2 p{
+    font-size: 1.2rem;
+    font-weight: lighter;
+    line-height: 1.9rem;
+}
+.chamada2 p b{
+    font-weight: 400;
+}
+.imagem-chamada3 img{
+    width: 81%;
+}
+#formulario{
+    padding: 40px 15px 50px 15px;
+    box-shadow: 0px 2px 5px 0px #6D7787;
+    margin: 1rem 0 4rem 0;
+}
+#formulario h5{
+    padding: 0 15px;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    text-align: center;
+}
+#formulario p{
+    font-size: 0.9rem;
+    text-align: center;
+    font-weight: lighter;
+    margin-bottom: 1.3rem;
+}
+#formulario form{
+    padding-top: 1.8rem;
+    border-top: 1px solid #d3d4d4;
+}
+.form{
+    margin-bottom: 1.2rem;
+}
+.form label{
+    font-size: 1.1rem;
+}
+.form input, .form select{
+    width: 100%;
+    padding: 10px;
+    margin-top: 0.7rem;
+    border: 3px solid #000000;
+}
+.form input:focus, .form select:focus{
+    outline: 0;
+}
+.meusite, .semsite{
+    font-weight: lighter;
+}
+.checkbox{
+    display: flex;
+    align-items: flex-end;
+    margin: 0.4rem 0 0.2rem 0;
+    cursor: pointer;
+}
+.checkbox #meusite, .checkbox #semsite{
+    cursor: pointer;
+    appearance: none;
+    border-radius: 50%;
+    border: 1px solid #000000;
+    width: 9px;
+    height: 9px;
+    padding: 8px;
+    margin-right: 10px;
+    outline: none;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.checkbox #meusite:before, .checkbox #semsite:before{
+    content: "";
+    position: absolute;
+    background-color: #000000;
+    border-radius: 50%;
+    width: 9px;
+    height: 9px;
+    opacity: 0;
+    border: 6px solid #22c1ce;
+}
+.checkbox #meusite:checked:before, .checkbox #semsite:checked:before{
+    opacity: 1;
+}
+.termos ul li{
+    font-size: 12px;
+    font-weight: lighter;
+    line-height: 15px;
+    list-style-type: disc;
+    margin-left: 20px;
+}
+.termos ul li a{
+    color: #22c1ce;
+}
+.termos{
+    margin-top: 10px;
+}
+.criar-conta{
+    margin-top: 30px;
+}
+.criar-conta button{
+    width: 100%;
+    padding: 10px;
+    background-color: #eeb437;
+    position: relative;
+    font-weight: bolder;
+    border: none;
+    font-size: 1.1rem;
+}
+.criar-conta button:after{
+    display:block;
+    content:"";
+    position:absolute;
+    width: 88%;
+    height:10px;
+    left: 30px;
+    top: 36.5px;
+    transform: perspective(80px) translateZ(5px) rotateX(-78deg);
+    background:rgb(0, 0, 0);
+    box-shadow: 0px 10px rgb(0, 0, 0);
+    z-index:-1;
+}
+.resultados{
+    margin-top: 7rem;
+}
+.resultados h2{
+    font-size: 1.8rem;
+    line-height: 2.3rem;
+    margin-bottom: 2rem;
+    font-weight: bolder;
+}
+.resultados h5{
+    font-size: 1.4rem;
+    margin-bottom: 2.8rem;
+    font-weight: lighter;
+}
+.resultados p{
+    margin-bottom: 2rem;
+    font-weight: lighter;
+    font-size: 1.1rem;
+    line-height: 1.4rem;
+}
+.resultados b{
+    font-weight: 400;
+}
+.resultados a{
+    color: #22c1ce;
+}
+.resultados i{
+    color: #22c1ce;
+    font-weight: bolder;
+    margin-right: 1rem;
+    font-size: 1.2rem;
+}
+.resultados .check{
+    display: flex;
+    flex-direction: row;
+}
+.ferramenta{
+    margin: 12rem 6.25rem 6rem 6.25rem;
+}
+.ferramenta h1{
+    font-size: 2.4rem;
+    font-weight: bolder;
+    line-height: 2.7rem;
+    margin-bottom: 3.5rem;
+}
+.ferramenta .cards{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.ferramenta .card{
+    padding: 1.4rem;
+    width: calc(33.33% - 1.4rem);
+    box-shadow: 0px 1px 10px -4px #618087;
+    margin: 0 1.4rem 1.4rem 0;
+}
+.ferramenta .card .icone{
+    padding: 0.8rem;
+    width: 4rem;
+    height: 4rem;
+    background-color: #eeeeee;
+    border-radius: 50%;
+    margin-bottom: 1.5rem;
+    color: #22c1ce;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ferramenta .card h3{
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    font-weight: bold;
+    line-height: 2.2rem;
+}
+.ferramenta .card p{
+    font-size: 1.1rem;
+    font-weight: lighter;
+    line-height: 1.4rem;
+    padding-right: 1rem;
+}
