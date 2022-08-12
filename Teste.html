@@ -11,18 +11,43 @@
 <body>
     <header class="topo">
         <div class="logo"><img src="imagens/logo.png" alt=""></div>
-        <nav class="menu">
-            <div><a href="#">Menu 1</a></div>
-            <div><a href="#">Menu 2 <i class="fa-solid fa-angle-down"></i></a></div>
-            <div><a href="#">Menu 3</a></div>
-            <div><a href="#">Menu 4</a></div>
-            <div><a href="#">Menu 5</a></div>
-        </nav>
-        <div class="btn1">
-            <button>BUTTON</button>
+        <div id="mostrarmenu">
+            <i class="fa-solid fa-bars"></i>
         </div>
-        <div class="btn2">
-            <button>BUTTON <i class="fa-solid fa-right-long"></i></button>
+        <div id="ocultarmenu" style="display: none;">
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+        <div id="menutotal">
+            <nav class="menu">
+                <div><a href="#">Menu 1</a></div>
+                <div><a href="#">Menu 2 <i class="fa-solid fa-angle-down"></i></a></div>
+                <div><a href="#">Menu 3</a></div>
+                <div><a href="#">Menu 4</a></div>
+                <div><a href="#">Menu 5</a></div>
+            </nav>
+            <div class="btn1">
+                <button>BUTTON</button>
+            </div>
+            <div class="btn2">
+                <button>BUTTON <i class="fa-solid fa-right-long"></i></button>
+            </div>
+        </div>
+        <div id="menumobile" style="display: none;">
+            <nav class="menu">
+                <div><a href="#">Menu 1</a></div>
+                <div class="menu2"><a href="#">Menu 2 <i class="fa-solid fa-angle-down"></i></a></div>
+                <div><a href="#">Menu 3</a></div>
+                <div><a href="#">Menu 4</a></div>
+                <div class="menu5"><a href="#">Menu 5</a></div>
+            </nav>
+            <div class="botoes">
+                <div class="btn1">
+                    <button>BUTTON</button>
+                </div>
+                <div class="btn2">
+                    <button>BUTTON <i class="fa-solid fa-right-long"></i></button>
+                </div>
+            </div>
         </div>
     </header>
     <article class="conteudo">
@@ -41,6 +66,7 @@
                     importamos com os seus resultados.
                 </p><br>
                 <p><b>Estaremos com você do planejamento até a prática!</b></p>
+                <div class="esquerda"></div>
             </section>
             <section class="chamada3">
                 <div class="imagem-chamada3">
@@ -52,22 +78,22 @@
             <div id="formulario">
                 <h5>Comece seus 10 dias de teste grátis do RD Station Marketing!</h5>
                 <p>Não precisa cadastrar cartão de crédito. &#x1F609</p>
-                <form action="">
+                <form action="https://rdstation-signup-psel.herokuapp.com" method="post">
                     <div class="form">
                         <label for="">Diga, qual seu nome?</label><br>
-                        <input type="text" name="nome" id="nome" placeholder="Insira seu nome">
+                        <input type="text" name="nome" id="nome" placeholder="Insira seu nome" required>
                     </div>
                     <div class="form">
                         <label for="">Seu email de trabalho</label><br>
-                        <input type="email" name="email" id="email" placeholder="Insira seu e-mail">
+                        <input type="email" name="email" id="email" placeholder="Insira seu e-mail" required>
                     </div>
                     <div class="form">
                         <label for="">Seu telefone</label><br>
-                        <input type="text" name="telefone" id="telefone" placeholder="Insira seu número de telefone com DDD">
+                        <input type="text" name="telefone" id="telefone" placeholder="Insira seu número de telefone com DDD" required data-mask="(99)9999[9]-9999">
                     </div>
                     <div class="form">
                         <label for="">Seu cargo de ocupação</label><br>
-                        <Select>
+                        <Select name="cargo" id="cargo" required>
                             <option value="">Selecione seu cargo</option>
                             <option value="Sócio(a) / CEO / Proprietário(a)">Sócio(a) / CEO / Proprietário(a)</option>
                             <option value="Diretor(a) de Vendas">Diretor(a) de Vendas</option>
@@ -84,13 +110,17 @@
                             <option value="Outros Cargos">Outros Cargos</option>
                         </Select>
                     </div>
-                    <div class="form">
+                    <div class="form" id="olhosenha">
                         <label for="">Crie uma senha</label><br>
-                        <input type="password" name="senha" id="senha">
+                        <input type="password" name="senha" id="senha" required minlength="6" maxlength="10">
+                        <i class="fa-solid fa-eye" id="abertosenha" style="display: none;"></i>
+                        <i class="fa-solid fa-eye-slash" id="fechadosenha" style="display: block;"></i>
                     </div>
-                    <div class="form">
+                    <div class="form" id="olhoconfirma">
                         <label for="">Confirme sua senha</label><br>
-                        <input type="text" name="confirmasenha" id="confirmasenha">
+                        <input type="password" name="confirmasenha" id="confirmasenha" required minlength="6" maxlength="10">
+                        <i class="fa-solid fa-eye" id="abertoconfirma" style="display: none;"></i>
+                        <i class="fa-solid fa-eye-slash" id="fechadoconfirma" style="display: block;"></i>
                     </div>
                     <div class="form">
                         <label for="">Qual é o site da sua empresa?</label><br>
@@ -106,7 +136,7 @@
                     </div>
                     <div class="termos">
                         <ul>
-                            <li>Ao criar minha conta estou de acordo com os <a href="#">termos de uso</a> do software e <a href="#">política de privacidade</a>.</li>
+                            <li>Ao criar minha conta estou de acordo com os <a href="https://legal.rdstation.com/pt-BR/rdstation-services-agreement/">termos de uso</a> do software e <a href="https://legal.rdstation.com/pt/privacy-policy/">política de privacidade</a>.</li>
                             <li>Ao preencher o formulário, concordo em receber comunicações de acordo com meus interesses.</li>
                             <li>*Você pode alterar suas permissões de comunicação a qualquer tempo.</li>
                         </ul>
@@ -139,10 +169,10 @@
     </article>
     <section class="ferramenta">
         <div class="titulo">
-            <h1>A ferramenta de Automação de<br> Marketing líder na América Latina</h1>
+            <h1>A ferramenta de Automação de Marketing líder na América Latina</h1>
         </div>
         <div class="cards">
-            <div class="card">
+            <div class="card" id="card1">
                 <div class="icone"><i class="fa-solid fa-chart-line"></i></div>
                 <h3>Torne sua operação de Marketing Digital mais produtiva</h3>
                 <p>Chega de usar várias ferramentas separadas e perder as informações no caminho! Somos
@@ -150,7 +180,7 @@
                      Digital em um só lugar para sua operação ser mais eficaz.
                 </p>
             </div>
-            <div class="card">
+            <div class="card" id="card2">
                 <div class="icone"><i class="fa-solid fa-bullhorn"></i></div>
                 <h3>Crie facilmente campanhas que funcionam</h3>
                 <p>É fácil usar o RD Station Marketing, porque suas funcionalidades são simples,
@@ -158,14 +188,14 @@
                     para diversas ocasiões e segmentos que você pode personalizar de acordo com a sua campanha.
                 </p>
             </div>
-            <div class="card">
+            <div class="card" id="card3">
                 <div class="icone"><i class="fa-solid fa-diagram-project"></i></div>
                 <h3>Construa jornadas personalizadas e gere vendas em escala</h3>
                 <p>Envie a mensagem certa na hora certa e construa jornadas personalizadas
                     que geram até 5x mais conversões e guiam Leads até a compra. Automatize
                     também suas tarefas e aumente a produtividade de Marketing e Vendas.</p>
             </div>
-            <div class="card">
+            <div class="card" id="card4">
                 <div class="icone"><i class="fa-solid fa-star"></i></div>
                 <h3>Encontre automaticamente as melhores oportunidades</h3>
                 <p>Conheça melhor seu público, de acordo com as informações capturadas nas
@@ -173,7 +203,7 @@
                      automaticamente Leads com maior potencial de compra e envie para o 
                      comercial oportunidades qualificadas.</p>
             </div>
-            <div class="card">
+            <div class="card" id="card5">
                 <div class="icone"><i class="fa-solid fa-chart-pie"></i></div>
                 <h3>Saia da incerteza e comprove resultados</h3>
                 <p>Ao invés de fazer uma série de ações isoladas, sem saber qual funciona, 
@@ -181,13 +211,21 @@
                      canais com recursos de análise para provar que Marketing Digital traz
                     mais vendas e clientes.</p>
             </div>
-            <div class="card">
+            <div class="card" id="card6">
                 <div class="icone"><i class="fa-solid fa-globe"></i></div>
                 <h3>Suporte ágil e na sua língua</h3>
                 <p>Nosso time de suporte técnico está disponível quando você precisar, com
                     uma taxa de satisfação de 97% entre nossos clientes e um tempo médio
                     de resolução de 6 horas. E o melhor: tudo isso em português.</p>
             </div>
+        </div>
+        <div class="radios">
+            <div id="radio1" class="radio"></div>
+            <div id="radio2" class="radio"></div>
+            <div id="radio3" class="radio"></div>
+            <div id="radio4" class="radio"></div>
+            <div id="radio5" class="radio"></div>
+            <div id="radio6" class="radio"></div>
         </div>
     </section>
     <section class="chamada4">
@@ -196,13 +234,21 @@
             seus resultados e um ecossistema que apoia o seu negócio do planejamento à prática.
         </p>
         <div class="conta-gratuita">
-            <a href="">CRIAR CONTA GRATUITA</a>
+            <a href="https://app.rdstation.com.br/signup">CRIAR CONTA GRATUITA</a>
         </div>
     </section>
+    <div class="modal" id="modal" style="display: none;">
+        <div class="fechar">
+            <p id="fechar">X</p>
+        </div>
+        <div class="modal-video">
+            <iframe width="100%" height="90%" src="https://www.youtube.com/embed/lGCesaaLi4s" title="Conheça o RD Station Marketing - Demonstração" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
     <section class="video">
         <div class="entenda">
             <h2>Entenda melhor como o RD Station Marketing funciona na prática</h2>
-            <button>ASSISTA A DEMONSTRAÇÃO <i class="fa-solid fa-circle-play"></i></button>
+            <button id="assistir">ASSISTA A DEMONSTRAÇÃO <i class="fa-solid fa-circle-play"></i></button>
         </div>
         <div id="imagem">
             <img src="imagens/imagem-video.png" alt="">
@@ -214,7 +260,7 @@
             <h2>Torne sua operação de Marketing ainda mais poderosa</h2>
             <p>O RD Station Marketing se conecta as principais ferramentas nacionais e internacionais</p>
             <div class="conta-gratuita2">
-                <a href="">CRIAR CONTA GRATUITA</a>
+                <a href="https://app.rdstation.com.br/signup">CRIAR CONTA GRATUITA</a>
             </div>
         </div>
         <div class="ferramentas">
@@ -307,17 +353,194 @@
             </div>
             <div class="redes">
                 <ul>
-                    <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-                    <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
-                    <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-                    <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+                    <li><a href="https://twitter.com/rd_station"><i class="fa-brands fa-twitter"></i></a></li>
+                    <li><a href="https://www.facebook.com/ResultadosDigitais/"><i class="fa-brands fa-facebook-f"></i></a></li>
+                    <li><a href="https://www.linkedin.com/company/resultadosdigitais"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                    <li><a href="https://www.instagram.com/resdigitais/"><i class="fa-brands fa-instagram"></i></a></li>
+                    <li><a href="https://www.youtube.com/channel/UC5lPKvmw6-DFya_qreisENQ"><i class="fa-brands fa-youtube"></i></a></li>
                 </ul>
             </div>
         </div>
         <div class="parte2">
-            &copy; <strong> 2021 <b>RD Station. </b> <a href="">Política de Privacidade.</a></strong>
+            &copy; <strong> 2021 <b>RD Station. </b> <a href="https://legal.rdstation.com/pt/privacy-policy/">Política de Privacidade.</a></strong>
         </div>
     </footer>
 </body>
+<script src="js/mascara.js"></script>
+<script>
+    var abertosenha = document.getElementById("abertosenha");
+    var fechadosenha = document.getElementById("fechadosenha");
+    var senha = document.getElementById("senha");
+
+    fechadosenha.addEventListener("click",function(){
+            fechadosenha.style.display = "none";
+            abertosenha.style.display = "block";
+            senha.type = "text";
+    });
+
+    abertosenha.addEventListener("click",function(){
+            fechadosenha.style.display = "block";
+            abertosenha.style.display = "none";
+            senha.type = "password";
+    });
+
+    var abertoconfirma = document.getElementById("abertoconfirma");
+    var fechadoconfirma = document.getElementById("fechadoconfirma");
+    var confirmasenha = document.getElementById("confirmasenha");
+
+    fechadoconfirma.addEventListener("click",function(){
+            fechadoconfirma.style.display = "none";
+            abertoconfirma.style.display = "block";
+            confirmasenha.type = "text";
+    });
+
+    abertoconfirma.addEventListener("click",function(){
+            fechadoconfirma.style.display = "block";
+            abertoconfirma.style.display = "none";
+            confirmasenha.type = "password";
+    });
+</script>
+
+<script>
+    var fechar = document.getElementById("fechar");
+    var modal = document.getElementById("modal");
+    var assistir = document.getElementById("assistir");
+    var imagem = document.getElementById("imagem");
+
+    imagem.addEventListener("click",function(){
+        modal.style.display = "block";
+    });
+    assistir.addEventListener("click",function(){
+        modal.style.display = "block";
+    });
+    fechar.addEventListener("click",function(){
+        modal.style.display = "none";
+    });
+</script>
+
+<script>
+    var mostrarmenu = document.getElementById("mostrarmenu");
+    var ocultarmenu = document.getElementById("ocultarmenu");
+    var menumobile = document.getElementById("menumobile");
+
+    mostrarmenu.addEventListener("click",function(){
+        menumobile.style.display = "block";
+        mostrarmenu.style.display = "none";
+        ocultarmenu.style.display = "block";
+    });
+    ocultarmenu.addEventListener("click",function(){
+        menumobile.style.display = "none";
+        ocultarmenu.style.display = "none";
+        mostrarmenu.style.display = "block";
+    });
+</script>
+
+
+<script>
+    var card1 = document.getElementById("card1");
+    var card2 = document.getElementById("card2");
+    var card3 = document.getElementById("card3");
+    var card4 = document.getElementById("card4");
+    var card5 = document.getElementById("card5");
+    var card6 = document.getElementById("card6");
+
+    var radio1 = document.getElementById("radio1");
+    var radio2 = document.getElementById("radio2");
+    var radio3 = document.getElementById("radio3");
+    var radio4 = document.getElementById("radio4");
+    var radio5 = document.getElementById("radio5");
+    var radio6 = document.getElementById("radio6");
+
+    radio1.addEventListener("click",function(){
+        radio1.style.backgroundColor = "#22c1ce";
+        radio2.style.backgroundColor = "#ffffff";
+        radio3.style.backgroundColor = "#ffffff";
+        radio4.style.backgroundColor = "#ffffff";
+        radio5.style.backgroundColor = "#ffffff";
+        radio6.style.backgroundColor = "#ffffff";
+        card1.style.display = "block";
+        card2.style.display = "none";
+        card3.style.display = "none";
+        card4.style.display = "none";
+        card5.style.display = "none";
+        card6.style.display = "none";
+    });
+
+    radio2.addEventListener("click",function(){
+        radio1.style.backgroundColor = "#ffffff";
+        radio2.style.backgroundColor = "#22c1ce";
+        radio3.style.backgroundColor = "#ffffff";
+        radio4.style.backgroundColor = "#ffffff";
+        radio5.style.backgroundColor = "#ffffff";
+        radio6.style.backgroundColor = "#ffffff";
+        card1.style.display = "none";
+        card2.style.display = "block";
+        card3.style.display = "none";
+        card4.style.display = "none";
+        card5.style.display = "none";
+        card6.style.display = "none";
+    });
+
+    radio3.addEventListener("click",function(){
+        radio1.style.backgroundColor = "#ffffff";
+        radio2.style.backgroundColor = "#ffffff";
+        radio3.style.backgroundColor = "#22c1ce";
+        radio4.style.backgroundColor = "#ffffff";
+        radio5.style.backgroundColor = "#ffffff";
+        radio6.style.backgroundColor = "#ffffff";
+        card1.style.display = "none";
+        card2.style.display = "none";
+        card3.style.display = "block";
+        card4.style.display = "none";
+        card5.style.display = "none";
+        card6.style.display = "none";
+    });
+
+    radio4.addEventListener("click",function(){
+        radio1.style.backgroundColor = "#ffffff";
+        radio2.style.backgroundColor = "#ffffff";
+        radio3.style.backgroundColor = "#ffffff";
+        radio4.style.backgroundColor = "#22c1ce";
+        radio5.style.backgroundColor = "#ffffff";
+        radio6.style.backgroundColor = "#ffffff";
+        card1.style.display = "none";
+        card2.style.display = "none";
+        card3.style.display = "none";
+        card4.style.display = "block";
+        card5.style.display = "none";
+        card6.style.display = "none";
+    });
+
+    radio5.addEventListener("click",function(){
+        radio1.style.backgroundColor = "#ffffff";
+        radio2.style.backgroundColor = "#ffffff";
+        radio3.style.backgroundColor = "#ffffff";
+        radio4.style.backgroundColor = "#ffffff";
+        radio5.style.backgroundColor = "#22c1ce";
+        radio6.style.backgroundColor = "#ffffff";
+        card1.style.display = "none";
+        card2.style.display = "none";
+        card3.style.display = "none";
+        card4.style.display = "none";
+        card5.style.display = "block";
+        card6.style.display = "none";
+    });
+
+
+    radio6.addEventListener("click",function(){
+        radio1.style.backgroundColor = "#ffffff";
+        radio2.style.backgroundColor = "#ffffff";
+        radio3.style.backgroundColor = "#ffffff";
+        radio4.style.backgroundColor = "#ffffff";
+        radio5.style.backgroundColor = "#ffffff";
+        radio6.style.backgroundColor = "#22c1ce";
+        card1.style.display = "none";
+        card2.style.display = "none";
+        card3.style.display = "none";
+        card4.style.display = "none";
+        card5.style.display = "none";
+        card6.style.display = "block";
+    });
+</script>
+
 </html>
